@@ -1,14 +1,18 @@
 /// <reference types="@cloudflare/workers-types" />
 
 import { Hono } from 'hono'
-
+import { rateLimit, RateLimitBinding, RateLimitKeyFunc } from "@elithrar/workers-hono-rate-limit";
+import { getConnInfo } from 'hono/cloudflare-workers'
 type Env = {
-  MY_BUCKET: R2Bucket
+  MY_BUCKET: R2Bucket,
+  MY_RATE_LIMITER: RateLimitBinding;
 }
-
-
 const app = new Hono<{ Bindings: Env }>()
 
+const getKey: RateLimitKeyFunc = (c) => getConnInfo(c).remote.address  || "";
+
+// Apply rate limiting to all routes
+app.use("*", (c, next) => rateLimit(c.env.MY_RATE_LIMITER, getKey)(c, next));
 
 const normalizeKey = (raw?: string) => {
   if (!raw) return ''
@@ -98,4 +102,3 @@ app.get('/*', async (c) => {
 })
 
 export default app
-
