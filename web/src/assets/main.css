@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+}
+
+svg {
+  overflow: unset !important;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+button,
+span,
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  font-family: "寒蝉半圆体", -apple-system, BlinkMacSystemFont, "Segoe UI Adjusted",
+  "Segoe UI", "Liberation Sans", sans-serif;
+}
+
+body {
+  font-family: "寒蝉半圆体", -apple-system, BlinkMacSystemFont, "Segoe UI Adjusted",
+    "Segoe UI", "Liberation Sans", sans-serif !important;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Hide the app until it's ready */
+#app:not([data-v-app]) {
+  display: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.file-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  flex-direction: column;
+}
+
+.file-list > li {
+  max-width: calc(100% - 20px);
+  margin:0 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.file-list > li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input[type="search"] {
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 16px;
+  width: 100%;
+  padding: 8px 12px;
+}
+.file-item {
+  width: 100%;
+  height: 64px;
+  padding: 0 8px;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.file-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 6px;
+  margin-right: 2px;
+}
+
+.file-info-container {
+  width: 100%;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.file-name,
+.contextmenu-filename {
+  display: block;
+  height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.contextmenu-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .contextmenu-list {
+    grid-template-columns: repeat(2, 1fr);
+  } 
+}
+
+.file-attr {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-top: 4px;
+  color: dimgray;
+  font-size: 0.8em;
+}
+
+.file-attr > span + span {
+  margin-left: 8px;
+}
+
+progress {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+button.circle {
+  z-index: 1;
+  border-radius: 50px;
+  padding: 0 16px;
+}
+
+.upload-button,
+.create-folder-button {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(57, 144, 155);
+  cursor: pointer;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.upload-button {
+  right: 30px;
+  bottom: 16px;
+}
+
+.create-folder-button {
+  right: 16px;
+  bottom: 80px;
+}
+
+.contextmenu-list > li > * {
+  border-radius: 8px;
+  display: flex;
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  background-color: whitesmoke;
+  transition: background-color 0.2s ease-in-out;
+  font-size: inherit;
+  justify-content: center;
+}
+
+.contextmenu-list > li > *:hover {
+  background-color: rgb(195, 195, 195);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+
+.slide-up-enter-active {
+  transition: transform 0.2s ease-out;
+}
+
+.slide-up-leave-active {
+  transition: transform 0.2s ease-in;
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  transform: translateY(100%);
+}
+

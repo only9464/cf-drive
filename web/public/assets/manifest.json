@@ -1,0 +1,13 @@
+{
+  "name": "个人网盘",
+  "theme_color": "#f38020",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
